@@ -1,0 +1,154 @@
+{
+  "sampleCompanies": [
+    {
+      "company": {
+        "name": "TechCorp Inc",
+        "industry": "Technology",
+        "revenue": 10000000,
+        "expenses": 7000000,
+        "assets": 15000000,
+        "liabilities": 5000000
+      }
+    },
+    {
+      "company": {
+        "name": "FinanceFirst Ltd",
+        "industry": "Finance",
+        "revenue": 25000000,
+        "expenses": 18000000,
+        "assets": 50000000,
+        "liabilities": 20000000
+      }
+    },
+    {
+      "company": {
+        "name": "HealthTech Solutions",
+        "industry": "Healthcare",
+        "revenue": 15000000,
+        "expenses": 12000000,
+        "assets": 30000000,
+        "liabilities": 8000000
+      }
+    },
+    {
+      "company": {
+        "name": "ManufacturingPro",
+        "industry": "Manufacturing",
+        "revenue": 50000000,
+        "expenses": 35000000,
+        "assets": 80000000,
+        "liabilities": 25000000
+      }
+    },
+    {
+      "company": {
+        "name": "StartupTech",
+        "industry": "Technology",
+        "revenue": 2000000,
+        "expenses": 1500000,
+        "assets": 5000000,
+        "liabilities": 1000000
+      }
+    },
+    {
+      "company": {
+        "name": "MegaBank Corp",
+        "industry": "Finance",
+        "revenue": 100000000,
+        "expenses": 80000000,
+        "assets": 200000000,
+        "liabilities": 150000000
+      }
+    }
+  ],
+  "workflowConfigurations": [
+    {
+      "name": "Standard Valuation",
+      "description": "Standard valuation workflow with balanced weights",
+      "config": {
+        "methodology": {
+          "weights": {
+            "dcf": 0.5,
+            "comparable": 0.3,
+            "asset": 0.2
+          }
+        },
+        "parameters": {
+          "discountRate": 0.1,
+          "growthRate": 0.05
+        }
+      }
+    },
+    {
+      "name": "Conservative Valuation",
+      "description": "Conservative valuation with higher asset-based weighting",
+      "config": {
+        "methodology": {
+          "weights": {
+            "dcf": 0.3,
+            "comparable": 0.2,
+            "asset": 0.5
+          }
+        },
+        "parameters": {
+          "discountRate": 0.12,
+          "growthRate": 0.03
+        }
+      }
+    },
+    {
+      "name": "Growth-Focused Valuation",
+      "description": "Growth-focused valuation with higher DCF weighting",
+      "config": {
+        "methodology": {
+          "weights": {
+            "dcf": 0.7,
+            "comparable": 0.2,
+            "asset": 0.1
+          }
+        },
+        "parameters": {
+          "discountRate": 0.08,
+          "growthRate": 0.08
+        }
+      }
+    }
+  ],
+  "testScenarios": [
+    {
+      "name": "Successful Workflow",
+      "description": "Complete workflow execution with valid data",
+      "expectedResult": "COMPLETED"
+    },
+    {
+      "name": "Validation Failure",
+      "description": "Workflow with invalid data that should fail validation",
+      "expectedResult": "FAILED",
+      "testData": {
+        "company": {
+          "name": "",
+          "industry": "Invalid",
+          "revenue": -1000,
+          "expenses": 500,
+          "assets": 1000,
+          "liabilities": 2000
+        }
+      }
+    },
+    {
+      "name": "Edge Case - High Revenue",
+      "description": "Company with very high revenue values",
+      "expectedResult": "COMPLETED",
+      "testData": {
+        "company": {
+          "name": "MegaCorp",
+          "industry": "Technology",
+          "revenue": 1000000000,
+          "expenses": 800000000,
+          "assets": 2000000000,
+          "liabilities": 500000000
+        }
+      }
+    }
+  ]
+}
